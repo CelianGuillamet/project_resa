@@ -10,7 +10,7 @@ $cityName = isset($_GET['id']) ? $_GET['id'] : '';
   <div class="mask">
     <div class="d-flex justify-content-center align-items-center h-100">
       <div class="text-black">
-        <h1 class="mb-2 text-light" style="font-size: 8em;"><strong><?php echo $_GET['id']?></strong></h1>
+        <h1 class="mb-2 text-light" style="font-size: 8em;"><strong><?php echo $_GET['id'] ?></strong></h1>
       </div>
     </div>
   </div>
@@ -28,4 +28,3 @@ displayEvents($cities);
 
 include 'footer.php';
 ?>
-

@@ -8,7 +8,7 @@ include 'header.php';
   <div class="mask">
     <div class="d-flex justify-content-center align-items-center h-100">
       <div class="text-black">
-        <h1 class="mb-2 text-light" style="font-size: 6em;"><strong><?php echo $_GET['artiste']?></strong></h1>
+        <h1 class="mb-2 text-light" style="font-size: 6em;"><strong><?php echo $_GET['artiste'] ?></strong></h1>
       </div>
     </div>
   </div>

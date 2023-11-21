@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 include 'header.php';
 $idUser = getIdUser($pdo, $_SESSION['username']);
@@ -42,7 +42,6 @@ foreach ($orders as $order) {
     echo '</div>';
     echo '</div>';
     echo '</div>';
-
 }
 
 include 'footer.php';

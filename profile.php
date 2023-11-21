@@ -32,7 +32,7 @@ echo '<p class="card-text">Adresse : ' . $users[0]['Address'] . '</p>';
 echo '</div>';
 echo '<div class="text-right col-md-6">';
 echo '<a href="editProfile.php?id_User=' . $users[0]['id_User'] . '" class="btn btn-primary">Modifier</a>';
-echo '<br><br>'; 
+echo '<br><br>';
 echo '<a href="historic.php?id_User=' . $users[0]['id_User'] . '" class="btn btn-primary">Historique des commandes</a>';
 echo '</div>';
 echo '</div>';

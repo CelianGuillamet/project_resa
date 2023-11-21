@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 include 'header.php';
 $idOrder = $_GET['id_Order'];
