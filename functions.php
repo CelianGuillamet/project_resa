@@ -36,8 +36,8 @@ function displayEvents($events)
             echo '<a href="artists.php?artiste=' . $event['ArtisteName'] . '" class="text-decoration-none">';
             echo '<div class="col-md-6">';
             echo '<div class="card text-white bg-primary">';
-            echo '<img class="card-img-top" src="' . $event['urlimg']. '" alt="Card image cap">';
-            
+            echo '<img class="card-img-top" src="' . $event['urlimg'] . '" alt="Card image cap">';
+
             echo '<div class="card-body ">';
             echo '<h5 class="card-title">' . $event['EventName'] . ' - ' . $event['ArtisteName'] . '</h5>';
             echo '<p class="card-text">' . $event['Description'] . '</p>';
@@ -181,7 +181,7 @@ SQL;
 
 function displayReserver($events, $data2)
 {
-    
+
     echo '<div class="container mt-4 mx-auto text-decoration-none">';
 
     if ($events[0]['id_Event_Venue'] == $data2) {
@@ -192,7 +192,7 @@ function displayReserver($events, $data2)
         echo '<div class="card text-white bg-primary">';
         echo '<img src="img/ahmed-sylla-tickets_179924_1593912_1240x480.jpg" class="card-img-top" alt="">';
         echo '<div class="card-body ">';
-        echo '<h5 class="card-title">' .$events[0]['EventName'] . ' - ' . $events[0]['ArtisteName'] . '</h5>';
+        echo '<h5 class="card-title">' . $events[0]['EventName'] . ' - ' . $events[0]['ArtisteName'] . '</h5>';
         echo '<p class="card-text">' . $events[0]['Description'] . '</p>';
         echo '<p class="card-text">Date: ' . $events[0]['FormattedEventDate'] . ',<br>';
         echo 'Salle : ' . $events[0]['VenueName'] . ', ' . $events[0]['CityName'] . '</p>';
@@ -200,7 +200,7 @@ function displayReserver($events, $data2)
         echo '</div>';
         echo '</a>';
         echo '</div>';
-       
+
         echo '</div>';
     }
 
@@ -215,9 +215,9 @@ function displayReserver($events, $data2)
     echo '<form method="POST" action="reserver.php?id_Event_Venue=' . $encodedIdEventVenue . '">';
     echo '<fieldset class="form-group">';
     echo '<legend class="mt-4">Nos Catégories disponible</legend>';
-    
+
     for ($i = 0; $i < 3; $i++) {
-    
+
         echo '<div class="form-check mb-2">';
         echo '<input class="form-check-input" type="radio" name="placementPrice" id="optionsRadios' . $events[$i]['Placement_CategoryName'] . '" value="' . $events[$i]['Price'] . ',' . $i . '">';
         echo '<label class="form-check-label" for="optionsRadios' . $events[$i]['Placement_CategoryName'] . '">';
@@ -226,19 +226,19 @@ function displayReserver($events, $data2)
         echo '</label>';
         echo '</div>';
     }
-    
+
     echo '</fieldset>';
-    ?>
+?>
     <div class="form-group text-light">
-  <label class="form-label mt-4">Nombres de places</label>
-  <div class="form-floating mb-3 text-light">
-  <input type="number" id="typeNumber" class="form-control" name="quantity" min="1"/>
-  </div>
-<div class="form-check form-switch">
-  <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="cancelOption">
-  <label class="form-check-label" for="flexSwitchCheckDefault">Option Annulation 17.90€</label>
-</div>
-<?php
+        <label class="form-label mt-4">Nombres de places</label>
+        <div class="form-floating mb-3 text-light">
+            <input type="number" id="typeNumber" class="form-control" name="quantity" min="1" />
+        </div>
+        <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="cancelOption">
+            <label class="form-check-label" for="flexSwitchCheckDefault">Option Annulation 17.90€</label>
+        </div>
+    <?php
     echo '<button type="submit" class="btn btn-primary">Réserver</button>';
     echo '</form>';
     echo '</div>';
@@ -247,12 +247,13 @@ function displayReserver($events, $data2)
     echo '</div>';
     echo '</div>';
     echo '</div>';
-    echo '</div>'; 
-echo '</div>';
+    echo '</div>';
+    echo '</div>';
 }
 
 
-function generateOrderNumber($customerId) {
+function generateOrderNumber($customerId)
+{
     $uniqueId = uniqid();
 
     $timestamp = date("YmdHis");
@@ -273,7 +274,7 @@ function getIdUser($pdo, $data1)
 SQL;
 
     $query = $pdo->prepare($sql);
-    $query->bindValue(':username',$data1);
+    $query->bindValue(':username', $data1);
     $query->execute();
     $id_User = $query->fetch(PDO::FETCH_ASSOC);
     return $id_User;
@@ -281,7 +282,8 @@ SQL;
 
 
 
-function insertOrder($pdo, $totalCost, $idUsers, $orderNumber) {
+function insertOrder($pdo, $totalCost, $idUsers, $orderNumber)
+{
     $sql = <<<SQL
     INSERT INTO Orders (Status, OrderDate, TotalCost, OrderNumber, id_User)
     VALUES ('En cours', NOW(), :TotalCost , :OrderNumber, :id_User)
@@ -303,7 +305,8 @@ SQL;
 // orderdetails
 
 
-function getOrderDetails($pdo, $idOrder) {
+function getOrderDetails($pdo, $idOrder)
+{
     $sql = <<<SQL
     SELECT *
     FROM Orders
@@ -326,7 +329,8 @@ function getOrderDetails($pdo, $idOrder) {
 
 
 
-function displayOrderDetails($order) {
+function displayOrderDetails($order)
+{
     echo '<div class="container">';
     echo '<div class="row">';
     echo '<div class="col-md-12">';

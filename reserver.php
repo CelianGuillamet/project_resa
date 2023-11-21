@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_SESSION['username'])) {
     if (isset($_POST['cancelOption'])) {
         $id_option = 1;
     } else {
-        $id_option = "";
+        $id_option = null;
     }
 
     $id_Order = insertOrder($pdo, $totalCost, $idUsers, $orderNumber);
@@ -56,3 +56,5 @@ SQL;
         echo '<div class="alert alert-danger" role="alert">Veuillez vous connecter pour réserver</div>';
     }
 }
+
+include 'footer.php';

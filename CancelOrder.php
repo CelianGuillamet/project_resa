@@ -13,6 +13,3 @@ SQL;
 $query = $pdo->prepare($sql);
 $query->bindValue(':id_Order', $idOrder);
 $query->execute();
-
-header('Location: index.php');
-?>

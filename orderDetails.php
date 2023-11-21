@@ -11,3 +11,5 @@ if (!empty($orders)) {
 } else {
     echo "Order not found.";
 }
+
+include 'footer.php';

@@ -31,6 +31,6 @@ SQL;
     $query = $pdo->prepare($sql);
     $query->bindValue(':nbPlaces', $orders[0]['nbPlaces']);
     $query->bindValue(':id_Placement_Categories_venue', $orders[0]['id_Placement_Categories_venue']);
-    $query->execute();
-}
+    $query->execute(); 
 header('Location: cart.php');
+}
